@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Popupper</title>
+
+</head>
+
+<body>
+	<h2>The Trade IT Link will go here</h2>
+	<p>Press "Trade It Link"</p>
+
+	<button onclick="alertRunner()">Alert from iframe</button>
+	<br/>
+
+	<button onclick="postMessage()">Post message from iframe</button>
+	<br/>
+
+	<script>
+
+		function init() {
+			console.log('on body load event I add event listener')
+			window.addEventListener("message", receiveMessage, false);
+		}
+
+		function postMessage() {
+  			var win = window.frames.target
+  			win.postMessage('hello')
+		}
+
+		function alertRunner() {
+			console.log('alert runner pressed....')
+			alert('hello from iframe')
+		}
+
+	</script>
+</body>
